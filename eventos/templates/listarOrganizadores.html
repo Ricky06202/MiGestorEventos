@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container mx-auto px-4 py-8">
+	<div class="flex justify-between items-center mb-6">
+		<h1 class="text-2xl font-bold">Organizadores</h1>
+		<a
+			class="bg-primary text-primary-foreground px-4 py-2 rounded-md"
+			href="{% url 'crearOrganizador' %}"
+		>
+			Agregar Organizador
+		</a>
+	</div>
+	<div class="bg-card rounded-md p-6 flex flex-col items-center justify-center">
+		<table class="w-full">
+			<thead>
+				<tr class="bg-muted text-muted-foreground">
+					<th class="px-4 py-2 text-left">Organizador</th>
+					<th class="px-4 py-2 text-left">Correo</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for organizador in object_list %}
+				<tr class="border-b border-muted">
+					<td class="px-4 py-2">{{ organizador.nombre }}</td>
+					<td class="px-4 py-2">{{ organizador.email }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% endblock %}

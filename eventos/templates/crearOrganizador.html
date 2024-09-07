@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="flex flex-col gap-8 items-center  alturaContenedor ">
+  <h1 class="text-center">Crear un nuevo organizador</h1>
+  <form class="grid gap-4 formulario text-2xl" method="POST">{% csrf_token %}
+    {% for field in form %}
+      <div class="grid grid-cols-2  ">
+        {{ field.label_tag }} {{ field }}
+      </div>
+    {% endfor %}
+    <div class="flex justify-center">
+      <input class="text-2xl botonCrear" type="submit" value="Crear" />
+    </div>
+  </form>
+</div>
+
+<style>
+  label {
+  }
+  input,
+  select {
+    border: none;
+    background-color: #f0f0f0;
+    font-size: 20px;
+  }
+  input:focus,
+  select:focus {
+    outline: none;
+  }
+  .alturaContenedor {
+    height: 500px;
+  }
+  .botonCrear {
+    padding: 10px 80px;
+    border-radius: 10px;
+  }
+  .botonCrear:hover {
+    background-color: #2f80ed;
+  }
+</style>
+
+{% endblock %}
