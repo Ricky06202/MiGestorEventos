@@ -16,14 +16,49 @@
 	</head>
 	<body>
 		<header>
-			<h1>Gestor de Eventos</h1>
+			<a href="{% url 'inicio' %}">Gestor de Eventos</a>
 			<nav>
 				<ul>
-					<li><a href="{% url 'eventos' %}">Eventos</a></li>
-					<li><a href="{% url 'organizadores' %}">Organizadores</a></li>
+					<a href="{% url 'eventos' %}">Eventos</a>
+					<a href="{% url 'organizadores' %}">Organizadores</a>
 				</ul>
 			</nav>
 		</header>
 		{% block content %}{% endblock %}
 	</body>
 </html>
+
+<style>
+	a {
+		text-decoration: none;
+	}
+	header {
+		background-color: #f0f0f0;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+	header > a {
+		font-size: 35px;
+		font-weight: bold;
+		color: #000;
+	}
+	header > nav > ul {
+		display: flex;
+		list-style: none;
+		gap: 20px;
+		align-items: center;
+	}
+	header > nav > ul > a {
+		color: #000;
+		text-decoration: none;
+		padding: 0 10px;
+		font-size: 20px;
+		background-color: #f0f0f0;
+		border-radius: 5px;
+		padding: 10px 15px;
+	}
+	header > nav > ul > a:hover {
+		background-color: #d4d4d4;
+	}
+</style>

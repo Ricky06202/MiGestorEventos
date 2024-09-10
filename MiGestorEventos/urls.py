@@ -13,7 +13,7 @@ from eventos.views import (
 )
 
 urlpatterns = [
-    path("", inicio),
+    path("", inicio, name="inicio"),
     path("eventos/", ListarEventos.as_view(), name="eventos"),
     path("eventos/crear/", CrearEvento.as_view(), name="crearEvento"),
     path("eventos/eliminar/<id>/", EliminarEvento, name="eliminarEvento"),
