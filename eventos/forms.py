@@ -11,8 +11,10 @@ class EventoForm(forms.ModelForm):
         fields = ["nombre", "fecha", "organizador"]
 
     def clean_nombre(self):
-        if self.cleaned_data["nombre"] == "Cancelado":
+        nombre = self.data.get('nombre')
+        if self.data.get('nombre').lower() == "cancelado":
             raise forms.ValidationError("El nombre no puede ser Cancelado")
+        return nombre
 
 
 class OrganizadorForm(forms.ModelForm):

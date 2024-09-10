@@ -16,6 +16,7 @@
 				<tr class="bg-muted text-muted-foreground">
 					<th class="px-4 py-2 text-left">Organizador</th>
 					<th class="px-4 py-2 text-left">Correo</th>
+					<th class="px-4 py-2 text-left">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -23,6 +24,18 @@
 				<tr class="border-b border-muted">
 					<td class="px-4 py-2">{{ organizador.nombre }}</td>
 					<td class="px-4 py-2">{{ organizador.email }}</td>
+					<td class="px-4 py-2">
+						<a
+							class="text-primary-foreground px-4 py-2 rounded-md bg-green"
+							href="{% url 'editarOrganizador' organizador.id %}"
+							>Editar</a
+						>
+						<a
+							class="text-primary-foreground px-4 py-2 rounded-md bg-red"
+							href="{% url 'eliminarOrganizador' organizador.id %}"
+							>Eliminar</a
+						>
+					</td>
 				</tr>
 				{% endfor %}
 			</tbody>

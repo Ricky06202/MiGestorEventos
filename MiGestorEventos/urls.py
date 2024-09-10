@@ -5,15 +5,22 @@ from eventos.views import (
     CrearOrganizador,
     ListarEventos,
     ListarOrganizadores,
-    blanco,
+    inicio,
+    EditarEvento,
+    EliminarEvento,
+    EliminarOrganizador,
+    EditarOrganizador,
 )
 
 urlpatterns = [
+    path("", inicio),
     path("eventos/", ListarEventos.as_view(), name="eventos"),
     path("eventos/crear/", CrearEvento.as_view(), name="crearEvento"),
-    path("eventos/eliminar/", blanco),
-    path("eventos/editar/", blanco),
+    path("eventos/eliminar/<id>/", EliminarEvento, name="eliminarEvento"),
+    path("eventos/editar/<id>/", EditarEvento.as_view(), name="editarEvento"),
     path("organizadores/", ListarOrganizadores.as_view(), name="organizadores"),
     path("organizadores/crear/", CrearOrganizador.as_view(), name="crearOrganizador"),
+    path("organizadores/editar/<id>", EditarOrganizador.as_view(), name="editarOrganizador"),
+    path("organizadores/eliminar/<id>", EliminarOrganizador, name="eliminarOrganizador"),
     path("admin/", admin.site.urls),
 ]

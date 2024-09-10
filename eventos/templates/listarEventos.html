@@ -17,6 +17,7 @@
 					<th class="px-4 py-2 text-left">Evento</th>
 					<th class="px-4 py-2 text-left">Fecha</th>
 					<th class="px-4 py-2 text-left">Organizador</th>
+					<th class="px-4 py-2 text-left">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,6 +26,18 @@
 					<td class="px-4 py-2">{{ evento.nombre }}</td>
 					<td class="px-4 py-2">{{ evento.fecha }}</td>
 					<td class="px-4 py-2">{{ evento.organizador.nombre }}</td>
+					<td class="px-4 py-2">
+						<a
+							class="text-primary-foreground px-4 py-2 rounded-md bg-green"
+							href="{% url 'editarEvento' evento.id %}"
+							>Editar</a
+						>
+						<a
+							class="text-primary-foreground px-4 py-2 rounded-md bg-red"
+							href="{% url 'eliminarEvento' evento.id %}"
+							>Eliminar</a
+						>
+					</td>
 				</tr>
 				{% endfor %}
 			</tbody>
