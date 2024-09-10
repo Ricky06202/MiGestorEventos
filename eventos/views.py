@@ -14,6 +14,7 @@ class CrearEvento(CreateView):
     model = Evento
     template_name = "crearEvento.html"
     form_class = EventoForm
+    success_url = "/eventos/"
 
 
 class ListarOrganizadores(ListView):
@@ -25,6 +26,7 @@ class CrearOrganizador(CreateView):
     model = Organizador
     template_name = "crearOrganizador.html"
     form_class = OrganizadorForm
+    success_url = "/organizadores/"
 
 
 def blanco(request):
