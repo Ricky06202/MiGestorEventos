@@ -10,10 +10,14 @@ from eventos.views import (
     EliminarEvento,
     EliminarOrganizador,
     EditarOrganizador,
+    LoginView,
+    LogoutView,
 )
 
 urlpatterns = [
     path("", inicio, name="inicio"),
+    path("login/", LoginView.as_view(), name="login"),
+    path("logout/", LogoutView, name="logout"),
     path("eventos/", ListarEventos.as_view(), name="eventos"),
     path("eventos/crear/", CrearEvento.as_view(), name="crearEvento"),
     path("eventos/eliminar/<id>/", EliminarEvento, name="eliminarEvento"),
